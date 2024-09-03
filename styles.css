@@ -1,0 +1,139 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Roboto", system-ui;
+  font-style: normal;
+}
+
+body {
+  background:#F8F8F8;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  border-top: 1px solid #D9FFF5;
+  padding: 1rem;
+  background: linear-gradient(45deg, #F8F8F8, #FFFFFF)
+}
+
+p {
+  margin: 0px;
+  color: #7E7E82;
+  text-transform: uppercase;
+  text-wrap: wrap;
+}
+/* Swiper variables */
+.swiper {
+  width: 100%;
+  height: 7rem;
+  margin: 1rem;
+}
+
+.swiper-slide {
+  background: #F8F8F8;
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 240px;
+  object-fit: cover;
+  transform: translateY(-20px);
+}
+
+.swiper-pagination-bullet-active {
+  background-color:#B5B6BC;
+  height: 12px;
+  width: 12px;
+}
+
+.swiper-pagination-bullet {
+  background-color:#DDDDDD;
+  height: 12px;
+  width: 12px;
+}
+
+/* Brand selector variables */
+.repair-brands {
+    margin: 1.5rem;
+    max-width: 950px;
+    max-height: 200px;
+}
+
+.selector-wrapper {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.expander-button {
+  display: flex;
+  margin: 1rem;
+  width: 100px;
+}
+.expander-button__image {
+    padding-right: 0.5rem;
+}
+
+.expander-button-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0; 
+    margin: 0; 
+    border: none; 
+    background-color: transparent; 
+    text-decoration: none; 
+}
+
+.brand-selector {
+    width: 224px;
+    max-height: 150px;
+}
+
+
+.brand-selector img {
+    width: 224px;
+}
+/* Mobile screens */
+@media (max-width: 767px) {
+    .repair-brands {
+        display: none;
+    }
+  }
+
+/* Tablet screens */
+@media (min-width: 768px) {
+    .swiper {
+        display: none;
+    }
+    .header {
+        border-top: 1px solid #D9FFF5;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(45deg, #F8F8F8, #FFFFFF)
+      }
+  }
+
+  /* Desktop screens */
+  @media (min-width: 1120px) {
+    .swiper {
+        display: none;
+    }
+    .header {
+        border-top: 1px solid #D9FFF5;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(45deg, #F8F8F8, #FFFFFF)
+      }
+  }

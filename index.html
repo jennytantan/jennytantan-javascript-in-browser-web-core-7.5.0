@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="utf-8" />
+  <title>CPS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+</head>
+<body>
+  <!-- Header -->
+   <div class="header">
+    <p>repair of equipment from various brands</p>
+   </div>
+  <!-- Swiper for mobile resolutions-->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="./images/button1.svg"></div>
+      <div class="swiper-slide"><img src="./images/button2.svg"></div>
+      <div class="swiper-slide"><img src="./images/button3.svg"></div>
+      <div class="swiper-slide"><img src="./images/button4.svg"></div>
+      <div class="swiper-slide"><img src="./images/button5.svg"></div>
+      <div class="swiper-slide"><img src="./images/button6.svg"></div>
+      <div class="swiper-slide"><img src="./images/button7.svg"></div>
+      <div class="swiper-slide"><img src="./images/button8.svg"></div>
+      <div class="swiper-slide"><img src="./images/button9.svg"></div>
+      <div class="swiper-slide"><img src="./images/button10.svg"></div>
+      <div class="swiper-slide"><img src="./images/button11.svg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Button block for tablet and desktop resolutions -->
+  <div class="repair-brands">
+    <div class="selector-wrapper">
+      <div class="brand-selector"><img src="./images/button1.svg"></div>
+      <div class="brand-selector"><img src="./images/button2.svg"></div>
+      <div class="brand-selector"><img src="./images/button3.svg"></div>
+      <div class="brand-selector"><img src="./images/button4.svg"></div>
+      <div class="brand-selector"><img src="./images/button5.svg"></div>
+      <div class="brand-selector"><img src="./images/button6.svg"></div>
+      <div class="brand-selector"><img src="./images/button7.svg"></div>
+      <div class="brand-selector"><img src="./images/button8.svg"></div>
+      <div class="brand-selector"><img src="./images/button9.svg"></div>
+      <div class="brand-selector"><img src="./images/button10.svg"></div>
+      <div class="brand-selector"><img src="./images/button11.svg"></div>
+    </div>
+    <div class="expander-button" id="expanderButton" data-expanded="false">
+        <div class="expander-button__image"><img src="./images/expand.svg"/></div>
+        <div class="expander-button-text">Show All</div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+    document.getElementById('expanderButton').addEventListener('click', function() {
+    const expanderButton = document.getElementById('expanderButton');
+    const selectorWrapper = document.querySelector('.selector-wrapper');
+    const brandSelectors = Array.from(selectorWrapper.querySelectorAll('.brand-selector'));
+    const isExpanded = expanderButton.getAttribute('data-expanded') === 'true';
+
+    if (isExpanded) {
+        // Collapse the items, show only the first two rows
+        const containerWidth = selectorWrapper.clientWidth;
+        const itemWidth = brandSelectors[0].clientWidth;
+        const itemsPerRow = Math.floor(containerWidth / itemWidth);
+        const visibleItems = itemsPerRow * 2; // Show two rows
+
+        brandSelectors.forEach((brand, index) => {
+            if (index >= visibleItems) {
+                brand.style.display = 'none';
+            }
+        });
+
+        expanderButton.querySelector('.expander-button-text').textContent = 'Show All';
+    } else {
+        // Expand to show all items
+        brandSelectors.forEach((brand) => {
+            brand.style.display = 'flex';
+        });
+
+        expanderButton.querySelector('.expander-button-text').textContent = 'Hide';
+    }
+
+    // Toggle the expanded state
+    expanderButton.setAttribute('data-expanded', !isExpanded);
+});
+
+  </script>
+
+</body>
+
+</html>
