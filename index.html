@@ -35,7 +35,7 @@
     <div class="swiper-pagination"></div>
   </div>
 
-  <!-- Button block for tablet and desktop resolutions -->
+  <!-- Drop-down menu for tablet and desktop resolutions -->
   <div class="repair-brands">
     <div class="selector-wrapper">
       <div class="brand-selector"><img src="./images/button1.svg"></div>
@@ -69,54 +69,9 @@
         clickable: true,
       },
     });
-
-    document.getElementById('expanderButton').addEventListener('click', function() {
-    const expanderButton = document.getElementById('expanderButton');
-    const selectorWrapper = document.querySelector('.selector-wrapper');
-    const brandSelectors = Array.from(selectorWrapper.querySelectorAll('.brand-selector'));
-    const isExpanded = expanderButton.getAttribute('data-expanded') === 'true';
-    
-    // Placeholder image to show when expanded
-    const expanderImage = document.createElement('img');
-    expanderImage.src = './images/expand_hide.svg'; 
-    expanderImage.className = 'expander-button__expanded-image'; // Add a class to style if needed
-
-    const buttonText = expanderButton.querySelector('.expander-button-text');
-
-    if (isExpanded) {
-        // Collapse the items, show only the first two rows
-        const containerWidth = selectorWrapper.clientWidth;
-        const itemWidth = brandSelectors[0].clientWidth;
-        const itemsPerRow = Math.floor(containerWidth / itemWidth);
-        const visibleItems = itemsPerRow * 2; // Show two rows
-
-        brandSelectors.forEach((brand, index) => {
-            if (index >= visibleItems) {
-                brand.style.display = 'none';
-            }
-        });
-
-        expanderButton.querySelector('.expander-button-text').textContent = 'Show All';
-        expanderButton.removeChild(expanderButton.querySelector('.expander-button__expanded-image')); // Remove the expanded image
-        expanderButton.querySelector('.expander-button__image').style.display = 'flex'; // Show the initial image
-    } else {
-        // Expand to show all items
-        brandSelectors.forEach((brand) => {
-            brand.style.display = 'flex';
-        });
-
-        expanderButton.querySelector('.expander-button-text').textContent = 'Hide';
-        expanderButton.querySelector('.expander-button__image').style.display = 'none'; // Hide the initial image
-        expanderButton.insertBefore(expanderImage, buttonText); // Insert the expanded image before the text
-    }
-
-    // Toggle the expanded state
-    expanderButton.setAttribute('data-expanded', !isExpanded);
-});
-
-
   </script>
-
+  <!-- Initialize drop-down menu -->
+  <script src="brand-selector-script.js"></script>
 </body>
 
 </html>
